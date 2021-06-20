@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.Monolithic.App.Web", "Mono2Micro.Monolithic.App.Web\Mono2Micro.Monolithic.App.Web.csproj", "{F2CECA47-6B3A-4B64-8418-9C37598211A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2CECA47-6B3A-4B64-8418-9C37598211A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2CECA47-6B3A-4B64-8418-9C37598211A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2CECA47-6B3A-4B64-8418-9C37598211A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2CECA47-6B3A-4B64-8418-9C37598211A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8F58D33-B808-4D96-B450-6CE4862199D8}
+	EndGlobalSection
+EndGlobal
