@@ -1,0 +1,1 @@
+Scaffold-DbContext -Connection Name=MonoDBConn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -Project "Mono2Micro.App.DAL" -force
