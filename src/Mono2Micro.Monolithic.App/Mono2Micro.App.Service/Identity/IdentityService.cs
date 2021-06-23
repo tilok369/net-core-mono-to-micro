@@ -1,0 +1,33 @@
+﻿using Mono2Micro.App.DAL.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mono2Micro.App.Service.Identity
+{
+    public class IdentityService : IIdentityService
+    {
+        private readonly IGenericRepository _genericRepository;
+
+        public IdentityService(IGenericRepository genericRepository)
+        {
+            this._genericRepository = genericRepository;
+        }
+
+        public DAL.Entities.Identity Get(int id)
+        {
+            return _genericRepository.Get<DAL.Entities.Identity>(id);
+        }
+
+        public int Save(DAL.Entities.Identity identity)
+        {
+            var entity = identity.Id == 0
+                ? _genericRepository.Add<DAL.Entities.Identity>(identity)
+                : _genericRepository.Edit<DAL.Entities.Identity>(identity);
+
+            return entity.Id;
+        }
+    }
+}

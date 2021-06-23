@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mono2Micro.App.DAL\Mono2Micro.App.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
