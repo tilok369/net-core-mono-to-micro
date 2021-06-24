@@ -19,10 +19,18 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             _identityFactory = identityFactory;
         }
 
-        [HttpGet("")]
+        [HttpGet("{id}")]
         public ActionResult<IdentityDTO> Get(int id)
         {
             var identity = _identityFactory.Get(id);
+
+            return Ok(identity);
+        }
+
+        [HttpGet("")]
+        public ActionResult<IList<IdentityDTO>> Get()
+        {
+            var identity = _identityFactory.Get();
 
             return Ok(identity);
         }

@@ -10,5 +10,6 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Identity
     {
         IdentityResponseDTO Save(IdentityRequestDTO request);
         IdentityDTO Get(int id);
+        IList<IdentityDTO> Get();
     }
 }

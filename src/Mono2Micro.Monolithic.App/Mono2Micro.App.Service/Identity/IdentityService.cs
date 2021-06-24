@@ -21,6 +21,11 @@ namespace Mono2Micro.App.Service.Identity
             return _genericRepository.Get<DAL.Entities.Identity>(id);
         }
 
+        public IEnumerable<DAL.Entities.Identity> Get()
+        {
+            return _genericRepository.GetAll<DAL.Entities.Identity>();
+        }
+
         public int Save(DAL.Entities.Identity identity)
         {
             var entity = identity.Id == 0

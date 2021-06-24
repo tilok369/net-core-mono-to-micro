@@ -10,5 +10,6 @@ namespace Mono2Micro.App.Service.Identity
     {
         int Save(DAL.Entities.Identity identity);
         DAL.Entities.Identity Get(int id);
+        IEnumerable<DAL.Entities.Identity> Get();
     }
 }

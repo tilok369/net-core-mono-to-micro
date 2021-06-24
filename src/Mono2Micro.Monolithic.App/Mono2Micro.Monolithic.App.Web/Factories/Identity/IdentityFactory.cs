@@ -37,6 +37,31 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Identity
             };
         }
 
+        public IList<IdentityDTO> Get()
+        {
+            var identities = _identityService.Get();
+            if (!identities.Any()) return new List<IdentityDTO>();
+
+            var identityList = identities.Select(identity =>
+             new IdentityDTO
+             {
+                 Id = identity.Id,
+                 FirstName = identity.FirstName,
+                 LastName = identity.LastName,
+                 Email = identity.Email,
+                 Phone = identity.Phone,
+                 IdentityNumber = identity.IdentityNumber,
+                 Status = identity.Status,
+                 TypeId = identity.TypeId,
+                 CreatedBy = identity.CreatedBy,
+                 CreatedOn = identity.CreatedOn,
+                 UpdatedBy = identity.UpdatedBy,
+                 UpdatedOn = identity.UpdatedOn
+             }).ToList();
+
+            return identityList;
+        }
+
         public IdentityResponseDTO Save(IdentityRequestDTO request)
         {
             var identity = new Mono2Micro.App.DAL.Entities.Identity
