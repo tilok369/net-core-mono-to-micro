@@ -20,7 +20,8 @@ namespace Mono2Micro.Monolithic.App.Web.Validators.Identity
                 .Matches(@"^(?:\+88|01)?\d{11}$")
                 .WithMessage("Invalid phone number format");
             RuleFor(i => i.Email)
-                .Must(IsValid);
+                .Must(IsValid)
+                .WithMessage("Invalid email format");
         }
 
         public bool IsValid(string emailaddress)

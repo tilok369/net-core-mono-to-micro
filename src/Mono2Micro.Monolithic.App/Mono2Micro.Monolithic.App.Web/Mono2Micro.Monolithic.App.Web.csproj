@@ -29,8 +29,4 @@
     <ProjectReference Include="..\Mono2Micro.App.Service\Mono2Micro.App.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Validators\" />
-  </ItemGroup>
-
 </Project>

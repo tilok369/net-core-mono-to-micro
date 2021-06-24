@@ -9,9 +9,9 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Identity
 {
     public class IdentityFactory : IIdentityFactory
     {
-        private readonly IdentityService _identityService;
+        private readonly IIdentityService _identityService;
 
-        public IdentityFactory(IdentityService identityService)
+        public IdentityFactory(IIdentityService identityService)
         {
             this._identityService = identityService;
         }
