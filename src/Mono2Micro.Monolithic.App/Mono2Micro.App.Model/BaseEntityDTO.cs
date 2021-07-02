@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mono2Micro.App.Model
 {
-    public record BaseEntityDTO
+    public abstract record BaseEntityDTO
     {
         public int Id { get; init; }
     }

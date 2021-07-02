@@ -13,7 +13,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Mono2Micro.App.DAL.Repositories;
 using Mono2Micro.App.Model.Identity;
+using Mono2Micro.App.Service.Filter;
 using Mono2Micro.App.Service.Identity;
+using Mono2Micro.Monolithic.App.Web.Factories.Filter;
 using Mono2Micro.Monolithic.App.Web.Factories.Identity;
 using Mono2Micro.Monolithic.App.Web.Validators.Identity;
 using System;
@@ -84,8 +86,10 @@ namespace Mono2Micro.Monolithic.App.Web
             services.AddScoped<IGenericRepository>(s => new GenericRepository(connectionString));
 
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IFilterService, FilterService>();
 
             services.AddScoped<IIdentityFactory, IdentityFactory>();
+            services.AddScoped<IFilterFactory, FilterFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

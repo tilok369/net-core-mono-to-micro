@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace Mono2Micro.App.Model
 {
-    public abstract record BasePostRequestDTO
-    {
-        public int Id { get; set; }
-    }
+    public abstract record BaseDdlResponseDTO (int Value, string Name);
 }

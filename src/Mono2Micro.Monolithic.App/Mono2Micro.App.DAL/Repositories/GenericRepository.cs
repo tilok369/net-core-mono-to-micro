@@ -3,6 +3,7 @@ using Mono2Micro.App.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -143,6 +144,26 @@ namespace Mono2Micro.App.DAL.Repositories
                 DbSet<T> dbSet = context.Set<T>();
                 var entityList = dbSet.AsNoTracking().ToList();
                 return entityList;
+            }
+        }
+
+        public List<T> Find<T>(Expression<Func<T, bool>> predicate) where T : class
+        {
+            using (var context = new MonoDBContext(_dbContextOptionBuilder.Options))
+            {
+                DbSet<T> dbSet = context.Set<T>();
+                var entityList = dbSet.Where(predicate).ToList();
+                return entityList;
+            }
+        }
+
+        public T First<T>(Expression<Func<T, bool>> predicate) where T : class
+        {
+            using (var context = new MonoDBContext(_dbContextOptionBuilder.Options))
+            {
+                DbSet<T> dbSet = context.Set<T>();
+                var entity = dbSet.FirstOrDefault(predicate);
+                return entity;
             }
         }
     }
