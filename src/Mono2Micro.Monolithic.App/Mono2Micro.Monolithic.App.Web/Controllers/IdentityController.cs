@@ -19,7 +19,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             _identityFactory = identityFactory;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("single")]
         public ActionResult<IdentityDTO> Get(int id)
         {
             var identity = _identityFactory.Get(id);
@@ -27,7 +27,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             return Ok(identity);
         }
 
-        [HttpGet("")]
+        [HttpGet("all")]
         public ActionResult<IList<IdentityDTO>> Get()
         {
             var identity = _identityFactory.Get();
@@ -35,7 +35,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             return Ok(identity);
         }
 
-        [HttpPost("")]
+        [HttpPost("post")]
         public ActionResult<IdentityResponseDTO> Post(IdentityRequestDTO identity)
         {
             var result = _identityFactory.Save(identity);
