@@ -27,6 +27,8 @@ namespace Mono2Micro.App.DAL.Entities
         public virtual DbSet<ProductDuration> ProductDurations { get; set; }
         public virtual DbSet<ProductInstallmentFrequency> ProductInstallmentFrequencies { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<TransactionType> TransactionTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -282,6 +284,54 @@ namespace Mono2Micro.App.DAL.Entities
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedOn).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<Transaction>(entity =>
+            {
+                entity.ToTable("Transaction", "operation");
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Date).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedOn).HasColumnType("datetime");
+
+                entity.HasOne(d => d.LoanAccount)
+                    .WithMany(p => p.Transactions)
+                    .HasForeignKey(d => d.LoanAccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Transacti__LoanA__3A81B327");
+
+                entity.HasOne(d => d.TypeNavigation)
+                    .WithMany(p => p.Transactions)
+                    .HasForeignKey(d => d.Type)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Transactio__Type__3B75D760");
+            });
+
+            modelBuilder.Entity<TransactionType>(entity =>
+            {
+                entity.ToTable("TransactionType", "config");
 
                 entity.Property(e => e.CreatedBy)
                     .IsRequired()

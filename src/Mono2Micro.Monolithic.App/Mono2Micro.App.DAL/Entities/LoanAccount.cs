@@ -10,6 +10,7 @@ namespace Mono2Micro.App.DAL.Entities
         public LoanAccount()
         {
             LoanSchedules = new HashSet<LoanSchedule>();
+            Transactions = new HashSet<Transaction>();
         }
 
         public int Id { get; set; }
@@ -30,5 +31,6 @@ namespace Mono2Micro.App.DAL.Entities
         public virtual InstallmentFrequency InstallmentFrequency { get; set; }
         public virtual Product Product { get; set; }
         public virtual ICollection<LoanSchedule> LoanSchedules { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

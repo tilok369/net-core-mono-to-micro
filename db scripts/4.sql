@@ -34,3 +34,39 @@ Create table [operation].[LoanSchedule]
 	[OutstandingAmount] float not null,
 	foreign key ([LoanAccountId]) references [operation].[LoanAccount](Id)
 )
+
+Go
+
+Create table [config].[TransactionType]
+(
+	Id int not null primary key identity(1,1),
+	[Name] nvarchar(50) not null,
+	[Status] bit not null,
+	[SortOrder] int not null,
+	CreatedOn datetime not null,
+	CreatedBy nvarchar(50) not null,
+	UpdatedOn datetime null,
+	UpdatedBy nvarchar(50) null
+)
+
+GO
+
+Create table [operation].[Transaction]
+(
+	Id int not null primary key identity(1,1),
+	[LoanAccountId] int not null,
+	[Amount] int not null,
+	[Date] datetime not null,
+	[Type] int not null,
+	CreatedOn datetime not null,
+	CreatedBy nvarchar(50) not null,
+	UpdatedOn datetime null,
+	UpdatedBy nvarchar(50) null,
+	foreign key ([LoanAccountId]) references [operation].[LoanAccount](Id),
+	foreign key ([Type]) references [config].[TransactionType](Id)
+)
+
+
+--insert into [config].[TransactionType] values ('LOAN_DISBURSED', 1, 1, GETDATE(), 'System', GETDATE(), 'System')
+--insert into [config].[TransactionType] values ('LOAN_COLLECTION', 1, 2, GETDATE(), 'System', GETDATE(), 'System')
+--select * from [config].[TransactionType]
