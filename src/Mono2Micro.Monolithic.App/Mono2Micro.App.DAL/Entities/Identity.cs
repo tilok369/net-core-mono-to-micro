@@ -7,6 +7,11 @@ namespace Mono2Micro.App.DAL.Entities
 {
     public partial class Identity
     {
+        public Identity()
+        {
+            LoanAccounts = new HashSet<LoanAccount>();
+        }
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -21,5 +26,6 @@ namespace Mono2Micro.App.DAL.Entities
         public string UpdatedBy { get; set; }
 
         public virtual IdentityType Type { get; set; }
+        public virtual ICollection<LoanAccount> LoanAccounts { get; set; }
     }
 }

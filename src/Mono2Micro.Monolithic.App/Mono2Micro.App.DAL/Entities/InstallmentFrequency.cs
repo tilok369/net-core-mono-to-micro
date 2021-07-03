@@ -9,6 +9,7 @@ namespace Mono2Micro.App.DAL.Entities
     {
         public InstallmentFrequency()
         {
+            LoanAccounts = new HashSet<LoanAccount>();
             ProductInstallmentFrequencies = new HashSet<ProductInstallmentFrequency>();
         }
 
@@ -21,6 +22,7 @@ namespace Mono2Micro.App.DAL.Entities
         public DateTime? UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
 
+        public virtual ICollection<LoanAccount> LoanAccounts { get; set; }
         public virtual ICollection<ProductInstallmentFrequency> ProductInstallmentFrequencies { get; set; }
     }
 }

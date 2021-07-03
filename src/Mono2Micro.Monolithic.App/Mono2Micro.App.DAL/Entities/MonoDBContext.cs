@@ -21,6 +21,8 @@ namespace Mono2Micro.App.DAL.Entities
         public virtual DbSet<Identity> Identities { get; set; }
         public virtual DbSet<IdentityType> IdentityTypes { get; set; }
         public virtual DbSet<InstallmentFrequency> InstallmentFrequencies { get; set; }
+        public virtual DbSet<LoanAccount> LoanAccounts { get; set; }
+        public virtual DbSet<LoanSchedule> LoanSchedules { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductDuration> ProductDurations { get; set; }
         public virtual DbSet<ProductInstallmentFrequency> ProductInstallmentFrequencies { get; set; }
@@ -134,6 +136,61 @@ namespace Mono2Micro.App.DAL.Entities
                 entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.Property(e => e.UpdatedOn).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<LoanAccount>(entity =>
+            {
+                entity.ToTable("LoanAccount", "operation");
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.DisbursedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedOn).HasColumnType("datetime");
+
+                entity.HasOne(d => d.DurationNavigation)
+                    .WithMany(p => p.LoanAccounts)
+                    .HasPrincipalKey(p => p.Duration1)
+                    .HasForeignKey(d => d.Duration)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LoanAccou__Durat__31EC6D26");
+
+                entity.HasOne(d => d.Identity)
+                    .WithMany(p => p.LoanAccounts)
+                    .HasForeignKey(d => d.IdentityId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LoanAccou__Ident__300424B4");
+
+                entity.HasOne(d => d.InstallmentFrequency)
+                    .WithMany(p => p.LoanAccounts)
+                    .HasForeignKey(d => d.InstallmentFrequencyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LoanAccou__Insta__32E0915F");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.LoanAccounts)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LoanAccou__Produ__30F848ED");
+            });
+
+            modelBuilder.Entity<LoanSchedule>(entity =>
+            {
+                entity.ToTable("LoanSchedule", "operation");
+
+                entity.Property(e => e.ScheduledDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.LoanAccount)
+                    .WithMany(p => p.LoanSchedules)
+                    .HasForeignKey(d => d.LoanAccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LoanSched__LoanA__35BCFE0A");
             });
 
             modelBuilder.Entity<Product>(entity =>
