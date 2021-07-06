@@ -1,5 +1,7 @@
 ﻿using Mono2Micro.App.DAL.Entities;
 using Mono2Micro.App.Model.LoanAccount;
+using Mono2Micro.App.Service.Filter;
+using Mono2Micro.App.Service.Identity;
 using Mono2Micro.App.Service.LoanAccount;
 using System;
 using System.Collections.Generic;
@@ -10,30 +12,49 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
 {
     public class LoanAccountFactory : ILoanAccountFactory
     {
-        private readonly ILoanAccountService _loanAccountService;
 
-        public LoanAccountFactory(ILoanAccountService loanAccountService)
+        private readonly ILoanAccountService _loanAccountService;
+        private readonly IFilterService _filterService;
+        private readonly IIdentityService _identityService;
+
+        public LoanAccountFactory(ILoanAccountService loanAccountService, IFilterService filterService,
+            IIdentityService identityService)
         {
             this._loanAccountService = loanAccountService;
+            this._filterService = filterService;
+            this._identityService = identityService;
         }
         public IList<LoanAccountRequestDTO> Get()
         {
             var accountList = _loanAccountService.Get();
-            return accountList.Select(l => new LoanAccountRequestDTO
-            {
-                Id = l.Id,
-                Amount = l.Amount,
-                CreatedBy = l.CreatedBy,
-                CreatedOn = l.CreatedOn,
-                DisbursedDate = l.DisbursedDate,
-                Duration = l.Duration,
-                IdentityId = l.IdentityId,
-                InstallmentFrequencyId = l.InstallmentFrequencyId,
-                ProductId = l.ProductId,
-                Status = l.Status,
-                UpdatedBy = l.UpdatedBy,
-                UpdatedOn = l.UpdatedOn
-            }).ToList();
+            var productList = _filterService.GetProducts();
+            var frequencyList = _filterService.GetInstallmentFrequencies();
+            var clientList = _identityService.Get();
+            return (from account in accountList
+                    join product in productList
+                    on account.ProductId equals product.Id
+                    join frequncy in frequencyList
+                    on account.InstallmentFrequencyId equals frequncy.Id
+                    join client in clientList
+                    on account.IdentityId equals client.Id
+                    select new LoanAccountRequestDTO
+                    {
+                        Id = account.Id,
+                        Amount = account.Amount,
+                        CreatedBy = account.CreatedBy,
+                        CreatedOn = account.CreatedOn,
+                        DisbursedDate = account.DisbursedDate,
+                        Duration = account.Duration,
+                        IdentityId = account.IdentityId,
+                        InstallmentFrequencyId = account.InstallmentFrequencyId,
+                        ProductId = account.ProductId,
+                        Status = account.Status,
+                        UpdatedBy = account.UpdatedBy,
+                        UpdatedOn = account.UpdatedOn,
+                        Client = client.FirstName + " " + client.LastName,
+                        Frequency = frequncy.Name,
+                        Product = product.Name
+                    }).ToList();
         }
 
         public LoanAccountRequestDTO Get(int id)

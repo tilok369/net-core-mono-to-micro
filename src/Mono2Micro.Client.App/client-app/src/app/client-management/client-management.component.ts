@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoanAccount } from '../Models/loanAccount';
+import { LoanAccountService } from '../services/loan-account.service';
 
 @Component({
   selector: 'app-client-management',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientManagementComponent implements OnInit {
 
-  constructor() { }
+  public loanAccounts: LoanAccount[] = [];
+  constructor(private loanAccountService: LoanAccountService) { }
 
   ngOnInit(): void {
+    this.getLoanAccounts();
+  }
+
+  getLoanAccounts(){
+    this.loanAccountService.getLoanAccounts().subscribe((res: any) => {
+      this.loanAccounts = res;
+      console.log(this.loanAccounts);
+    });
   }
 
 }

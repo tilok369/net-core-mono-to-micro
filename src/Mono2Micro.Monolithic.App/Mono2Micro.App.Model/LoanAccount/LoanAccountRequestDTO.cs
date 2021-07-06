@@ -9,9 +9,12 @@ namespace Mono2Micro.App.Model.LoanAccount
     public record LoanAccountRequestDTO: BaseEntityDTO
     {
         public int IdentityId { get; set; }
+        public string Client { get; set; }
         public int ProductId { get; set; }
+        public string Product { get; set; }
         public int Duration { get; set; }
         public int InstallmentFrequencyId { get; set; }
+        public string Frequency { get; set; }
         public DateTime DisbursedDate { get; set; }
         public int Amount { get; set; }
         public bool Status { get; set; }
