@@ -11,6 +11,7 @@ import { LoanManagementComponent } from './loan-management/loan-management.compo
 import { TransactionManagementComponent } from './transaction-management/transaction-management.component';
 
 import { LoanAccountService } from './services/loan-account.service';
+import { ClientManagementAddComponent } from './client-management-add/client-management-add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoanAccountService } from './services/loan-account.service';
     HomeComponent,
     ClientManagementComponent,
     LoanManagementComponent,
-    TransactionManagementComponent
+    TransactionManagementComponent,
+    ClientManagementAddComponent
   ],
   imports: [
     BrowserModule,
