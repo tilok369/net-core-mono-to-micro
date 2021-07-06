@@ -16,9 +16,11 @@ using Mono2Micro.App.Model.Identity;
 using Mono2Micro.App.Service.Filter;
 using Mono2Micro.App.Service.Identity;
 using Mono2Micro.App.Service.LoanAccount;
+using Mono2Micro.App.Service.Transactions;
 using Mono2Micro.Monolithic.App.Web.Factories.Filter;
 using Mono2Micro.Monolithic.App.Web.Factories.Identity;
 using Mono2Micro.Monolithic.App.Web.Factories.LoanAccount;
+using Mono2Micro.Monolithic.App.Web.Factories.Transactions;
 using Mono2Micro.Monolithic.App.Web.Validators.Identity;
 using System;
 using System.Collections.Generic;
@@ -90,10 +92,12 @@ namespace Mono2Micro.Monolithic.App.Web
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IFilterService, FilterService>();
             services.AddScoped<ILoanAccountService, LoanAccountService>();
+            services.AddScoped<ITransactionService, TransactionService>();
 
             services.AddScoped<IIdentityFactory, IdentityFactory>();
             services.AddScoped<IFilterFactory, FilterFactory>();
             services.AddScoped<ILoanAccountFactory, LoanAccountFactory>();
+            services.AddScoped<ITransactionFactory, TransactionFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
