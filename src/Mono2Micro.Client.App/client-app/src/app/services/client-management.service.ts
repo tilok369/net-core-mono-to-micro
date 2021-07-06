@@ -5,11 +5,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
     providedIn: 'root'
 })
 
-export class LoanAccountService{
+export class ClientManagementService{
 
     constructor(private http: HttpClient){}
 
-    getLoanAccounts(){
-        return this.http.get('https://localhost:44386/api/gateway/v1.0/account/all');
+    getAllClient(){
+        return this.http.get('https://localhost:44386/api/gateway/v1.0/identity/all');
     }
 }

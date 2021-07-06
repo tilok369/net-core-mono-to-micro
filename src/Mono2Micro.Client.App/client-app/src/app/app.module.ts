@@ -12,6 +12,7 @@ import { TransactionManagementComponent } from './transaction-management/transac
 
 import { LoanAccountService } from './services/loan-account.service';
 import { ClientManagementAddComponent } from './client-management-add/client-management-add.component';
+import {ClientManagementService} from './services/client-management.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ClientManagementAddComponent } from './client-management-add/client-man
     HttpClientModule
   ],
   providers: [
-    LoanAccountService
+    LoanAccountService,
+    ClientManagementService
   ],
   bootstrap: [AppComponent]
 })

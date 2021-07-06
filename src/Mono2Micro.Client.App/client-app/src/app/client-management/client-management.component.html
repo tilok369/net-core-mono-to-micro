@@ -1,28 +1,32 @@
 <div class="row" style="margin-top: 5%;">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <table class="table table-success table-striped table-hover loan-account-table">
-            <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Client</td>
-                    <td>Product</td>
-                    <td>Duration</td>
-                    <td>Frequency</td>
-                    <td>Amount</td>
-                    <td>Disbursed Date</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let account of loanAccounts;  let i = index">
-                    <td>{{(i + 1)}}</td>
-                    <td>{{account.Client}}</td>
-                    <td>{{account.Product}}</td>
-                    <td>{{account.Duration}}</td>
-                    <td>{{account.Frequency}}</td>
-                    <td>{{account.Amount}}</td>
-                    <td>{{account.DisbursedDate | date:'mediumDate'}}</td>
-                </tr>
-            </tbody>
-          </table>
-    </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <table class="table table-success table-striped table-hover client-account-table">
+          <thead>
+              <tr>
+                  <td>#</td>
+                  <td>FirstName</td>
+                  <td>LastName</td>
+                  <td>Email</td>
+                  <td>Phone</td>
+                  <td>IdentityNumber</td>
+                  <td>TypeId</td>
+                  <td>Status</td>
+                  <td>CreatedOn</td>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let client of clients;  let i = index">
+                  <td>{{(i + 1)}}</td>
+                  <td>{{client.FirstName}}</td>
+                  <td>{{client.LastName}}</td>
+                  <td>{{client.Email}}</td>
+                  <td>{{client.Phone}}</td>
+                  <td>{{client.IdentityNumber}}</td>
+                  <td>{{client.TypeId }}</td>
+                  <td>{{client.Status}}</td>
+                  <td>{{client.CreatedOn | date:'mediumDate'}}</td>
+              </tr>
+          </tbody>
+        </table>
+  </div>
 </div>
