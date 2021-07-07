@@ -111,7 +111,23 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
             return new LoanAccountResponseDTO { Id = result.Id, Message = result.Id == 0 ? "Error" : "Success", Success = result.Id > 0 };
         }
 
-        private IList<LoanSchedule> CreateSchedule(List<LoanSchedule> prevSchedules, int accountId, int duration, int frequesncy, int amount, DateTime disbursedDate)
+        public IList<LoanScheduleDTO> CreateSchedule(int duration, int frequesncy, int amount, DateTime disbursedDate)
+        {
+            var schedules = CreateSchedule(new List<LoanSchedule>(), null, duration, frequesncy, amount, disbursedDate);
+
+            return schedules.Select(s => new LoanScheduleDTO
+            {
+                Id = 0,
+                InstallmentAmount = s.InstallmentAmount,
+                InstallmentNo = s.InstallmentNo,
+                LoanAccountId = 0,
+                OutstandingAmount = s.OutstandingAmount,
+                PaidAmount = s.PaidAmount,
+                ScheduledDate = s.ScheduledDate
+            }).ToList();
+        }
+
+        private IList<LoanSchedule> CreateSchedule(List<LoanSchedule> prevSchedules, int? accountId, int duration, int frequesncy, int amount, DateTime disbursedDate)
         {
             var schedules = new List<LoanSchedule>();
             double outstabdingAmount = amount;
@@ -128,7 +144,7 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
                 schedules.Add(new LoanSchedule
                 {
                     Id = 0,
-                    LoanAccountId = accountId,
+                    LoanAccountId = accountId??0,
                     InstallmentNo = i,
                     ScheduledDate = scheduleDate,
                     InstallmentAmount = ((double)amount / duration),
