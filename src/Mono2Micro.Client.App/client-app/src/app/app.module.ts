@@ -13,6 +13,7 @@ import { TransactionManagementComponent } from './transaction-management/transac
 import { LoanAccountService } from './services/loan-account.service';
 import { ClientManagementAddComponent } from './client-management-add/client-management-add.component';
 import {ClientManagementService} from './services/client-management.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ClientManagementService} from './services/client-management.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

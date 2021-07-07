@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-client-management-add',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-management-add.component.css']
 })
 export class ClientManagementAddComponent implements OnInit {
-
-  constructor() { }
+  formData:any
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
+    this.formData = {
+      FirstName: '',
+      LastName: '',
+      Email: '',
+      PhoneNumber: '',
+      
+    }
+  }
+  onSubmit(form: NgForm) {
+    console.log(this.formData);
   }
 
 }
