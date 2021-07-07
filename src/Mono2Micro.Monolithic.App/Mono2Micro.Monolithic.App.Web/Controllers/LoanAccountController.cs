@@ -40,5 +40,12 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             var response = _loanAccountFactory.Save(request);
             return Ok(response);
         }
+
+        [HttpGet("schedule")]
+        public ActionResult<IList<LoanScheduleDTO>> GetSchedule(int duration, int frequesncy, int amount, DateTime disbursedDate)
+        {
+            var response = _loanAccountFactory.CreateSchedule(duration, frequesncy, amount, disbursedDate);
+            return Ok(response);
+        }
     }
 }

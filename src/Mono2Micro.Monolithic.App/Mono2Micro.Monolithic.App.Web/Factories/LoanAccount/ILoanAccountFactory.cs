@@ -12,5 +12,6 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
         LoanAccountRequestDTO Get(int id);
 
         LoanAccountResponseDTO Save(LoanAccountRequestDTO loanAccount);
+        IList<LoanScheduleDTO> CreateSchedule(int duration, int frequesncy, int amount, DateTime disbursedDate);
     }
 }

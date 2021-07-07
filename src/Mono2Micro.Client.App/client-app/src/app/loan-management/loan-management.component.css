@@ -1,0 +1,8 @@
+table.loan-account-table thead tr td {
+  font-weight: bold;
+  border: 1px solid #20a03d;
+}
+
+table.loan-account-table tbody tr td {
+  border: 1px solid #20a03d;
+}
