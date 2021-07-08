@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoanAccount } from '../Models/loanAccount';
 import { LoanAccountService } from '../services/loan-account.service';
 
@@ -10,7 +11,8 @@ import { LoanAccountService } from '../services/loan-account.service';
 export class LoanManagementComponent implements OnInit {
 
   public loanAccounts: LoanAccount[] = [];
-  constructor(private loanAccountService: LoanAccountService) { }
+  constructor(private loanAccountService: LoanAccountService
+    ,private router:Router) { }
 
   ngOnInit(): void {
     this.getLoanAccounts();
@@ -21,6 +23,10 @@ export class LoanManagementComponent implements OnInit {
       this.loanAccounts = res;
       console.log(this.loanAccounts);
     });
+  }
+
+  gotoLoanAccountAdd(){
+    this.router.navigateByUrl('/loan-account-add');
   }
 
 }

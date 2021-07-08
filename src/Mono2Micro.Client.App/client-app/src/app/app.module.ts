@@ -14,6 +14,7 @@ import { LoanAccountService } from './services/loan-account.service';
 import { ClientManagementAddComponent } from './client-management-add/client-management-add.component';
 import {ClientManagementService} from './services/client-management.service';
 import { FormsModule } from '@angular/forms';
+import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     ClientManagementComponent,
     LoanManagementComponent,
     TransactionManagementComponent,
-    ClientManagementAddComponent
+    ClientManagementAddComponent,
+    LoanAccountAddComponent
   ],
   imports: [
     BrowserModule,

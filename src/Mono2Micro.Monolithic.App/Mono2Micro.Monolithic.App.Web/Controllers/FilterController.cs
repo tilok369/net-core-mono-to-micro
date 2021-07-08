@@ -41,14 +41,14 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             return Ok(frequencies);
         }
 
-        [HttpGet("product-durations")]
+        [HttpGet("product-durations/{productId}")]
         public ActionResult<IList<DdlResponseDTO>> GetDurationsByProduct(int productId)
         {
             var productDurations = _filterFactory.GetDurationsByProduct(productId);
             return Ok(productDurations);
         }
 
-        [HttpGet("product-frequencies")]
+        [HttpGet("product-frequencies/{productId}")]
         public ActionResult<IList<DdlResponseDTO>> GetInstallmentFrequenciesByProduct(int productId)
         {
             var productFrequencies = _filterFactory.GetInstallmentFrequenciesByProduct(productId);

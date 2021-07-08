@@ -1,0 +1,76 @@
+<p>loan-account-add works!</p>
+<div class="inner-page-wrapper registration-wrapper">
+  <div class="container">
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 next-ready-box">
+          <button class="btn-one btn-one-margin pull-right pull-right" type="submit">
+            <i class="fa fa-save"></i> <span> Save</span>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-10 col-md-10 col-sm-10 next-ready-box">
+            <h3>Loan Account </h3>
+            <hr />
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Identity Id</label>
+                <input type="Number" id="identity-id" name="identity-id" placeholder="Identity Id" required [(ngModel)]="formData.IdentityId" class="form-control col-lg-4 col-md-4 col-sm-12" />
+              </div>
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Product</label>
+                <select  id="product-id" name="product-id" [(ngModel)]="formData.ProductId" (change)="productChanged();" class="form-control col-lg-4 col-md-4 col-sm-12">
+                  <option *ngFor="let x of products" [ngValue]="x.Value" >{{x.Name}}</option>
+              </select>
+
+              </div>
+
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Duration</label>
+                <select  id="duration" name="duration" [(ngModel)]="formData.Duration" class="form-control col-lg-4 col-md-4 col-sm-12">
+                  <option *ngFor="let x of durations" [ngValue]="x.Value" >{{x.Name}}</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Installment Frequency </label>
+                <select  id="installmentFrequency-id" name="installmentFrequency-id" [(ngModel)]="formData.InstallmentFrequencyId" class="form-control col-lg-4 col-md-4 col-sm-12">
+                  <option *ngFor="let x of installmentFrequency" [ngValue]="x.Value" >{{x.Name}}</option>
+                </select>
+
+              </div>
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Disbursed Date </label>
+                <input type="Date" id="disbursed-date" name="disbursed-date"placeholder="Disbursed Date" required [(ngModel)]="formData.DisbursedDate" class="form-control col-lg-4 col-md-4 col-sm-12" />
+              </div>
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Amount </label>
+                <input type="Number" id="amount" name="amount"placeholder="Amount" required [(ngModel)]="formData.Amount" class="form-control col-lg-4 col-md-4 col-sm-12" />
+              </div>
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Status </label>
+                <select class="form-control col-lg-4 col-md-4 col-sm-12" >
+                  <option  [value]= "1" >Active</option>
+                  <option  [value]= "0" >InActive</option>
+              </select>
+
+              </div>
+              <div class="form-group">
+                <label class="col-lg-5 col-md-5 col-sm-12">Created On </label>
+                <input type="Date" id="created-on" name="created-on"placeholder="Created On" required [(ngModel)]="formData.CreatedOn" class="form-control col-lg-4 col-md-4 col-sm-12" />
+              </div>
+              <!-- <div class="form-group">
+                  <label class="col-lg-5 col-md-5 col-sm-12">Nationality</label>
+                  <select name="profile-nationality" id="profile-nationality" class="form-control" [(ngModel)]="formData.Nationality">
+                    <option *ngFor="let nationality of nationalityList" value={{nationality.Value}}>
+                      {{nationality.Name}}
+                    </option>
+                  </select>
+                </div> -->
+            </div>
+      </div>
+  </form>
+</div>
+</div>
+
