@@ -34,7 +34,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             return Ok(account);
         }
 
-        [HttpPost]
+        [HttpPost("post")]
         public ActionResult<LoanAccountResponseDTO> Post(LoanAccountRequestDTO request)
         {
             var response = _loanAccountFactory.Save(request);

@@ -26,6 +26,13 @@ namespace Mono2Micro.App.Api.Gateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(cors => cors.AddPolicy("appPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            }));
+
             services.AddRazorPages();
             services.AddOcelot().AddCacheManager(settings => settings.WithDictionaryHandle());
         }
@@ -48,6 +55,8 @@ namespace Mono2Micro.App.Api.Gateway
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors("appPolicy");
 
             app.UseAuthorization();
 

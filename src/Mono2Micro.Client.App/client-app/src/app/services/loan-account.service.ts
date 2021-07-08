@@ -14,7 +14,7 @@ export class LoanAccountService{
     }
 
     saveLoanAccounts(loanAccount:any){
-      return this.http.post('https://localhost:44386/api/gateway/v1.0/account/',loanAccount);
+      return this.http.post('https://localhost:44386/api/gateway/v1.0/account/post',loanAccount);
   }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FilterService } from '../services/filter.service';
 import { LoanAccountService } from '../services/loan-account.service';
+import { LoanAccount } from '../Models/loanAccount';
 
 @Component({
   selector: 'app-loan-account-add',
@@ -9,7 +10,7 @@ import { LoanAccountService } from '../services/loan-account.service';
   styleUrls: ['./loan-account-add.component.css']
 })
 export class LoanAccountAddComponent implements OnInit {
-  formData:any;
+  formData: LoanAccount = new LoanAccount;
   products : any;
   durations : any;
   installmentFrequency: any;
@@ -18,19 +19,6 @@ export class LoanAccountAddComponent implements OnInit {
     private loanAccountService: LoanAccountService) { }
 
   ngOnInit(): void {
-    this.formData = {
-      IdentityId: Number,
-      ProductId: Number,
-      Duration: Number,
-      InstallmentFrequencyId : Number,
-      DisbursedDate : Date,
-      Amount : Number,
-      Status : Boolean,
-      CreatedOn : Date,
-      CreatedBy : '',
-      UpdatedOn : Date,
-      UpdatedBy : '',
-    }
     this.getProductsFilter();
   }
 
