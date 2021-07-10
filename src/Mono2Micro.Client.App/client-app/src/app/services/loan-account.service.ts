@@ -17,5 +17,9 @@ export class LoanAccountService{
       return this.http.post('https://localhost:44386/api/gateway/v1.0/account/post',loanAccount);
   }
 
+  getLoanSchedule(duration:number, frequency:number, amount:number, disbursedDate:Date){
+    return this.http.get('https://localhost:44386/api/gateway/v1.0/account/schedule/'+ duration +"/" + frequency + "/"+ amount + "/" + disbursedDate);
+}
+
 
 }

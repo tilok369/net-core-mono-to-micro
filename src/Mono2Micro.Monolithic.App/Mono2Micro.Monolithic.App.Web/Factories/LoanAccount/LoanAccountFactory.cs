@@ -83,18 +83,17 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
         {
             var account =  new Mono2Micro.App.DAL.Entities.LoanAccount
             {
-                Id = loanAccount.Id,
+                IdentityId = 1,
                 Amount = loanAccount.Amount,
-                CreatedBy = loanAccount.CreatedBy,
-                CreatedOn = loanAccount.CreatedOn,
+                CreatedBy = "Admin",
+                CreatedOn = DateTime.Now,
                 DisbursedDate = loanAccount.DisbursedDate,
                 Duration = loanAccount.Duration,
-                IdentityId = loanAccount.IdentityId,
                 InstallmentFrequencyId = loanAccount.InstallmentFrequencyId,
                 ProductId = loanAccount.ProductId,
-                Status = loanAccount.Status,
-                UpdatedBy = loanAccount.UpdatedBy,
-                UpdatedOn = loanAccount.UpdatedOn
+                Status = true,
+                UpdatedBy = "Admin",
+                UpdatedOn = DateTime.Now,
             };
 
             var result = _loanAccountService.Save(account);
