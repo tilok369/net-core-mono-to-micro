@@ -39,12 +39,20 @@ export class LoanAccountAddComponent implements OnInit {
   });
 }
 
-getLoanSchedule(){
-  this.loanAccountService.getLoanSchedule(this.formData.Duration, this.formData.InstallmentFrequencyId,
-     this.formData.Amount, this.formData.DisbursedDate).subscribe((res: any)=>{
-       this.schedules = res;
+gotoschedule(){
+  this.getLoanSchedule();
+}
 
-     });
+getLoanSchedule(){
+  {
+    this.loanAccountService.getLoanSchedule(this.formData.Duration, this.formData.InstallmentFrequencyId,
+      this.formData.Amount, this.formData.DisbursedDate).subscribe((res: any)=>{
+        this.schedules = res;
+
+      });
+
+  }
+
 }
 
 productChanged(){

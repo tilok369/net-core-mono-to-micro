@@ -39,6 +39,9 @@
                 <label class="col-lg-5 col-md-5 col-sm-12">Amount </label>
                 <input type="Number" id="amount" name="amount"placeholder="Amount" required [(ngModel)]="formData.Amount" (change)="getLoanSchedule();" class="form-control col-lg-4 col-md-4 col-sm-12" />
               </div>
+              <div>
+                <button class="btn btn-info" style="margin-bottom: 10px;" (click)="gotoschedule();">Show Schedule</button>
+              </div>
               <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10 next-ready-box">
                   <button class="btn btn-primary" type="submit">
