@@ -32,6 +32,11 @@ namespace Mono2Micro.App.Service.Filter
             return _genericRepository.GetAll<InstallmentFrequency>();
         }
 
+        public List<TransactionType> GetTransactionTypes()
+        {
+            return _genericRepository.GetAll<TransactionType>();
+        }
+
         public List<ProductInstallmentFrequency> GetInstallmentFrequenciesByProduct(int productId)
         {
             return _genericRepository.Find<ProductInstallmentFrequency>(i => i.ProductId == productId);

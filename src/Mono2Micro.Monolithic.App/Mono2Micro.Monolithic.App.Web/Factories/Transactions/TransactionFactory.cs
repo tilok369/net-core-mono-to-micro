@@ -79,15 +79,14 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Transactions
         {
             var dbTransaction = new Transaction
             {
-                Id = transaction.Id,
                 Amount = transaction.Amount,
-                CreatedBy = transaction.CreatedBy,
-                CreatedOn = transaction.CreatedOn,
+                CreatedBy = "Admin",
+                CreatedOn = DateTime.Now,
                 Date = transaction.Date,
-                LoanAccountId = transaction.LoanAccountId,
+                LoanAccountId = 3,
                 Type = transaction.Type,
-                UpdatedBy = transaction.UpdatedBy,
-                UpdatedOn = transaction.UpdatedOn
+                UpdatedBy = "Admin",
+                UpdatedOn = DateTime.Now
             };
 
             var result = _transactionService.Save(dbTransaction);

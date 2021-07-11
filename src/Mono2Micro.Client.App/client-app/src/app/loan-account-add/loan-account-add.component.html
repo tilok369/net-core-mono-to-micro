@@ -54,7 +54,7 @@
   </form>
 </div>
 </div>
-<div ng-if="schedules.length != 0 " class="row" style="margin-top: 5%;">
+<div *ngIf="schedules && schedules.length >0" class="row" style="margin-top: 5%;">
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <table  class="table table-success table-striped table-hover loan-account-table">
           <thead>

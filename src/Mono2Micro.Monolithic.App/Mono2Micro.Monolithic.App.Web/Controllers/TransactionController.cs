@@ -34,7 +34,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             return Ok(transaction);
         }
 
-        [HttpGet("post")]
+        [HttpPost("post")]
         public ActionResult<TransactionResponseDTO> Post(TransactionRequestDTO request)
         {
             var response = _transactionFactory.Save(request);

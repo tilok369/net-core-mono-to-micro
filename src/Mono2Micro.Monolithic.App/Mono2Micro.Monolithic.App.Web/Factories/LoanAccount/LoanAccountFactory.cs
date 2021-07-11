@@ -110,8 +110,8 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
                 var rslt = _loanAccountService.Save(newSchedules);
 
                 var transaction = new Transaction { LoanAccountId = result.Id, Type = 1, Amount = loanAccount.Amount, 
-                    Date = loanAccount.DisbursedDate, CreatedOn = loanAccount.CreatedOn, CreatedBy = loanAccount.CreatedBy, 
-                    UpdatedBy = loanAccount.UpdatedBy, UpdatedOn = loanAccount.UpdatedOn };
+                    Date = loanAccount.DisbursedDate, CreatedOn = DateTime.Now, CreatedBy = loanAccount.CreatedBy, 
+                    UpdatedBy = loanAccount.UpdatedBy, UpdatedOn = DateTime.Now };
                 _transactionService.Save(transaction);
             }
 

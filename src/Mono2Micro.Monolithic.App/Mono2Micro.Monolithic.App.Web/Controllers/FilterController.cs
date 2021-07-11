@@ -54,5 +54,12 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             var productFrequencies = _filterFactory.GetInstallmentFrequenciesByProduct(productId);
             return Ok(productFrequencies);
         }
+
+        [HttpGet("transaction-types")]
+        public ActionResult<IList<DdlResponseDTO>> GetTransactionTypes()
+        {
+            var transactionTypes = _filterFactory.GetTransactionTypes();
+            return Ok(transactionTypes);
+        }
     }
 }
