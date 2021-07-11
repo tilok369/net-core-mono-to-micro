@@ -11,10 +11,12 @@ import { LoanManagementComponent } from './loan-management/loan-management.compo
 import { TransactionManagementComponent } from './transaction-management/transaction-management.component';
 
 import { LoanAccountService } from './services/loan-account.service';
+import { TransactionService } from './services/transaction.service';
 import { ClientManagementAddComponent } from './client-management-add/client-management-add.component';
 import {ClientManagementService} from './services/client-management.service';
 import { FormsModule } from '@angular/forms';
 import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.component';
+import { TransactionManagementAddComponent } from './transaction-management-add/transaction-management-add.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.com
     LoanManagementComponent,
     TransactionManagementComponent,
     ClientManagementAddComponent,
-    LoanAccountAddComponent
+    LoanAccountAddComponent,
+    TransactionManagementAddComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.com
   ],
   providers: [
     LoanAccountService,
-    ClientManagementService
+    ClientManagementService,
+    TransactionService
   ],
   bootstrap: [AppComponent]
 })
