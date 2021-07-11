@@ -12,4 +12,8 @@ export class ClientManagementService{
     getAllClient(){
         return this.http.get('https://localhost:44386/api/gateway/v1.0/identity/all');
     }
+
+    saveClient(client:any){
+        return this.http.post('https://localhost:44386/api/gateway/v1.0/identity/post',client);
+    }
 }

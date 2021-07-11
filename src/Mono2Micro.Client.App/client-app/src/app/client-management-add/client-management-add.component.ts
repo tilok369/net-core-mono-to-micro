@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ClientManagementService } from '../services/client-management.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-management-add',
@@ -8,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ClientManagementAddComponent implements OnInit {
   formData:any
-  constructor() {
+  constructor(private clientManagementService: ClientManagementService, private router : Router) {
     
    }
 
@@ -17,12 +19,22 @@ export class ClientManagementAddComponent implements OnInit {
       FirstName: '',
       LastName: '',
       Email: '',
-      PhoneNumber: '',
+      Phone: '',
+      IdentityNumber: '',
+      TypeId : 1,
+      Status: true
       
     }
   }
   onSubmit(form: NgForm) {
     console.log(this.formData);
+    this.clientManagementService.saveClient(this.formData).subscribe((res: any) => {
+      console.log(res);
+      if(res.Success){
+        alert('Saved successfully');
+        this.router.navigateByUrl('/client-management');
+      }
+    });
   }
 
 }
