@@ -10,6 +10,9 @@ namespace Mono2Micro.App.Model.Transactions
     {
         public int Id { get; set; }
         public int LoanAccountId { get; set; }
+        public string Product { get; set; }
+        public string Member { get; set; }
+        public string TypeStr { get; set; }
         public int Amount { get; set; }
         public DateTime Date { get; set; }
         public int Type { get; set; }
