@@ -15,6 +15,7 @@ import { ClientManagementAddComponent } from './client-management-add/client-man
 import {ClientManagementService} from './services/client-management.service';
 import { FormsModule } from '@angular/forms';
 import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.component';
+import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,20 @@ import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.com
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule.forRoot({
+      config: {
+        authority: 'https://localhost:44310',
+        redirectUrl: window.location.origin,
+        postLogoutRedirectUri: window.location.origin,
+        clientId: 'angular',
+        scope: 'openid ApiOne',
+        responseType: 'code',
+        silentRenew: true,
+        useRefreshToken: true,
+        logLevel: LogLevel.Debug,
+      },
+    }),
   ],
   providers: [
     LoanAccountService,

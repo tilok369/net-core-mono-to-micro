@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mono2Micro.App.Model.LoanAccount;
 using Mono2Micro.Monolithic.App.Web.Factories.LoanAccount;
@@ -11,6 +12,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/account")]
     [ApiController]
+    [Authorize]
     public class LoanAccountController : ControllerBase
     {
         private readonly ILoanAccountFactory _loanAccountFactory;
@@ -20,7 +22,9 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             this._loanAccountFactory = loanAccountFactory;
         }
 
+        
         [HttpGet("all")]
+        
         public ActionResult<IList<LoanAccountRequestDTO>> Get()
         {
             var accounts = _loanAccountFactory.Get();

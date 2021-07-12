@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mono2Micro.App.Model.Filter;
 using Mono2Micro.Monolithic.App.Web.Factories.Filter;
@@ -11,6 +12,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/filter")]
     [ApiController]
+    [Authorize]
     public class FilterController : ControllerBase
     {
         private readonly IFilterFactory _filterFactory;

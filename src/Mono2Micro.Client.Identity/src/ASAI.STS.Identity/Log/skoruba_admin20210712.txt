@@ -1,0 +1,27 @@
+2021-07-12 23:06:07.881 +06:00 [ERR] An exception was thrown while deserializing the token.
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted.
+ ---> System.Security.Cryptography.CryptographicException: The key {d92bd8cb-444e-4ca3-a0af-75bbd40e4e52} was not found in the key ring.
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery.GetCookieTokenDoesNotThrow(HttpContext httpContext)
+2021-07-12 23:11:24.220 +06:00 [INF] Email: angular@angular.com, subject: Confirm your email, message: Please confirm your account by <a href='https://localhost:44310/Account/ConfirmEmail?userId=36558feb-4a86-44f9-a2c8-6a2528f34e13&amp;code=Q2ZESjhNUWprdDdCTEpaSXBKblA0NUo4c2tFN282OE5xUkU1cUd1N1hGMDJyZW9CcU0xc2N5dmVsdThXcDFCNTRwZFFHTGhScC9yMU5OQUdpaVhzby9rZ3ppTGptUnJwWlJRcG5CTHptTVBIbzlzN2FraWVnTy9kOWtNN1VPZTc5NC9KYVU1Uk1BZGxVeHVOeWNJNHFqZmwvck5MRXVFTzdkMkdKUmVTOWdjRjBHcXNuUmxUTGQ1Y0JadVFRS2hpbGRFR0hneDdjSDhVYkQ5S2Ereit0ZmEvd1hpcEEvN2NLbDBCYnNoU1hINzA2cmZPZG5pNWYyVEFkTmtUSGxpM0Y1TFJEdz09'>clicking here</a>.
+2021-07-12 23:17:41.388 +06:00 [INF] Email: admin@skoruba.com, subject: Confirm your email, message: Please confirm your account by <a href='https://localhost:44310/Account/ConfirmEmail?userId=e4406ffa-db80-43ad-bc25-fcf92d185fa3&amp;code=Q2ZESjhNUWprdDdCTEpaSXBKblA0NUo4c2tFRGttSktmdEwwbGdITkxvSUp2Q1R6UWZyWGI0SWNwQVZ5SUhhOWZ4VmxmeUViVXNOeDNod0FrWm1NWi9PdDBwK0Q1QmpKanY1bGtveXlFT3ZGOFVwQU8waVdvK01wTmxKZVpOMVVMWWdCZ05Tbmd0ejZUaXE4KzFMajl3L29jSVZ0ak9WdzF5T0lTS0IwdnVCSWEvOXZld3RQdUY5azE4dzc3eDNyRy9mYm5Xak51c0xyb3RDcW1DUmRkYWhYNEJNNmVwNU83TjUzUU1oTDdycmg2QWJFeVhaRlpnNFhpbisvR0hYN1p6M2lXdz09'>clicking here</a>.
+2021-07-12 23:23:17.457 +06:00 [INF] Email: admin1@asai.com, subject: Confirm your email, message: Please confirm your account by <a href='https://localhost:44310/Account/ConfirmEmail?userId=2f2dfae8-73aa-459d-8e15-c013cebd9a39&amp;code=Q2ZESjhNUWprdDdCTEpaSXBKblA0NUo4c2tIbWRjV0wyZmQ4Qjg1UmVsSkVKdXYrQk5jQnhsOE5ubG5ybmNQQ1RlWm5TYU50Z0ZScnNoc2VlSFVneExYMlhwb0g4MnRvb1hmTlZ1bmsxWUJJdVlKd0dmKzlyaGROWUhUc2srdk5FSWdzaWpWQzhpeGtMMll5WEs5elI5MGNNZ3J5MkV6ZUo1KzNjT0VWQ2MvbUZ1cktqK0F0OXBmTW02NlBVb045Ujd3Q1BYWWVGK2pEVHF1QjB2TVdFMU5LK2NhMWhrU3JXYmJkbkFqaUkxRkh3N05lbGRkYjUza1NURmdjRldYWS9jWEJZUT09'>clicking here</a>.
+2021-07-12 23:38:30.905 +06:00 [ERR] An exception was thrown while deserializing the token.
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted.
+ ---> System.Security.Cryptography.CryptographicException: The key {de9223c4-2cc1-4896-a499-cfe3927cb241} was not found in the key ring.
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+   at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery.GetCookieTokenDoesNotThrow(HttpContext httpContext)
+2021-07-12 23:49:18.805 +06:00 [ERR] client_id is missing or too long
+{"ClientId":null,"ClientName":null,"RedirectUri":null,"AllowedRedirectUris":null,"SubjectId":"414548e0-0d42-4d79-8d09-c9f6d39a0acc","ResponseType":null,"ResponseMode":null,"GrantType":null,"RequestedScopes":"","State":null,"UiLocales":null,"Nonce":null,"AuthenticationContextReferenceClasses":null,"DisplayMode":null,"PromptMode":"","MaxAge":null,"LoginHint":null,"SessionId":null,"Raw":{},"$type":"AuthorizeRequestValidationLog"}
+2021-07-12 23:49:18.885 +06:00 [ERR] Request validation failed
+2021-07-12 23:49:24.659 +06:00 [ERR] No access token found.

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mono2Micro.App.Model.Identity;
 using Mono2Micro.Monolithic.App.Web.Factories.Identity;
@@ -11,6 +12,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/identity")]
     [ApiController]
+    [Authorize]
     public class IdentityController : ControllerBase
     {
         private readonly IIdentityFactory _identityFactory;
