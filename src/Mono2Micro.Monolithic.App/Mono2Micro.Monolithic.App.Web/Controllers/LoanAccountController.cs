@@ -45,7 +45,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
             return Ok(response);
         }
 
-        [HttpGet("schedule")]
+        [HttpGet("schedule/{duration}/{frequesncy}/{amount}/{disbursedDate}")]
         public ActionResult<IList<LoanScheduleDTO>> GetSchedule(int duration, int frequesncy, int amount, DateTime disbursedDate)
         {
             var response = _loanAccountFactory.CreateSchedule(duration, frequesncy, amount, disbursedDate);

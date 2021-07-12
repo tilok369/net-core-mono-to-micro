@@ -22,4 +22,9 @@ getInstallmentFrequencyByProduct(productId:number){
   return this.http.get('https://localhost:44386/api/gateway/v1.0/filter/product-frequencies/'+productId,this.requestHelper.getHttpHeader());
 
 }
+
+getTransactionTypes(){
+  return this.http.get('https://localhost:44386/api/gateway/v1.0/filter/transaction-types');
+}
+
 }

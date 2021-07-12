@@ -41,6 +41,13 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Filter
                 .ToList();
         }
 
+        public List<DdlResponseDTO> GetTransactionTypes()
+        {
+            return _filterService.GetTransactionTypes()
+                .Select(p => new DdlResponseDTO(p.Id, p.Name, p.SortOrder))
+                .ToList();
+        }
+
         public List<DdlResponseDTO> GetInstallmentFrequenciesByProduct(int productId)
         {
             var frequencies = _filterService.GetInstallmentFrequencies();

@@ -6,6 +6,7 @@ import { LoanManagementComponent } from './loan-management/loan-management.compo
 import { TransactionManagementComponent } from './transaction-management/transaction-management.component';
 import { LoanAccountAddComponent } from './loan-account-add/loan-account-add.component';
 import { ClientManagementAddComponent } from './client-management-add/client-management-add.component';
+import { TransactionManagementAddComponent } from './transaction-management-add/transaction-management-add.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'client-management-add',
     component: ClientManagementAddComponent
+  },
+  {
+    path: 'transaction-management-add',
+    component: TransactionManagementAddComponent
   },
 
   {

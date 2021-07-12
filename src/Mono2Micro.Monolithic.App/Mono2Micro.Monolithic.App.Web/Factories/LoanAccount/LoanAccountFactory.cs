@@ -3,6 +3,7 @@ using Mono2Micro.App.Model.LoanAccount;
 using Mono2Micro.App.Service.Filter;
 using Mono2Micro.App.Service.Identity;
 using Mono2Micro.App.Service.LoanAccount;
+using Mono2Micro.App.Service.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,15 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
         private readonly ILoanAccountService _loanAccountService;
         private readonly IFilterService _filterService;
         private readonly IIdentityService _identityService;
+        private readonly ITransactionService _transactionService;
 
         public LoanAccountFactory(ILoanAccountService loanAccountService, IFilterService filterService,
-            IIdentityService identityService)
+            IIdentityService identityService, ITransactionService transactionService)
         {
             this._loanAccountService = loanAccountService;
             this._filterService = filterService;
             this._identityService = identityService;
+            this._transactionService = transactionService;
         }
         public IList<LoanAccountRequestDTO> Get()
         {
@@ -83,18 +86,17 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
         {
             var account =  new Mono2Micro.App.DAL.Entities.LoanAccount
             {
-                Id = loanAccount.Id,
+                IdentityId = 1,
                 Amount = loanAccount.Amount,
-                CreatedBy = loanAccount.CreatedBy,
-                CreatedOn = loanAccount.CreatedOn,
+                CreatedBy = "Admin",
+                CreatedOn = DateTime.Now,
                 DisbursedDate = loanAccount.DisbursedDate,
                 Duration = loanAccount.Duration,
-                IdentityId = loanAccount.IdentityId,
                 InstallmentFrequencyId = loanAccount.InstallmentFrequencyId,
                 ProductId = loanAccount.ProductId,
-                Status = loanAccount.Status,
-                UpdatedBy = loanAccount.UpdatedBy,
-                UpdatedOn = loanAccount.UpdatedOn
+                Status = true,
+                UpdatedBy = "Admin",
+                UpdatedOn = DateTime.Now,
             };
 
             var result = _loanAccountService.Save(account);
@@ -106,6 +108,11 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.LoanAccount
                     loanAccount.InstallmentFrequencyId, loanAccount.Amount, loanAccount.DisbursedDate);
 
                 var rslt = _loanAccountService.Save(newSchedules);
+
+                var transaction = new Transaction { LoanAccountId = result.Id, Type = 1, Amount = loanAccount.Amount, 
+                    Date = loanAccount.DisbursedDate, CreatedOn = DateTime.Now, CreatedBy = loanAccount.CreatedBy, 
+                    UpdatedBy = loanAccount.UpdatedBy, UpdatedOn = DateTime.Now };
+                _transactionService.Save(transaction);
             }
 
             return new LoanAccountResponseDTO { Id = result.Id, Message = result.Id == 0 ? "Error" : "Success", Success = result.Id > 0 };

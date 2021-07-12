@@ -11,6 +11,7 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Filter
         List<DdlResponseDTO> GetProducts();
         List<DdlResponseDTO> GetDurations();
         List<DdlResponseDTO> GetInstallmentFrequencies();
+        List<DdlResponseDTO> GetTransactionTypes();
         List<DdlResponseDTO> GetDurationsByProduct(int productId);
         List<DdlResponseDTO> GetInstallmentFrequenciesByProduct(int productId);
     }
