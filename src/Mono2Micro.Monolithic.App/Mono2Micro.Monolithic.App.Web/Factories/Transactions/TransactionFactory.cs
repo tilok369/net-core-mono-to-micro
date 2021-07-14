@@ -83,7 +83,7 @@ namespace Mono2Micro.Monolithic.App.Web.Factories.Transactions
                 CreatedBy = "Admin",
                 CreatedOn = DateTime.Now,
                 Date = transaction.Date,
-                LoanAccountId = 3,
+                LoanAccountId = transaction.Id,
                 Type = transaction.Type,
                 UpdatedBy = "Admin",
                 UpdatedOn = DateTime.Now

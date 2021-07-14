@@ -9,6 +9,8 @@
               <tr>
                   <td>#</td>
                   <td>LoanAccountId</td>
+                  <td>Product Name</td>
+                  <td>Member</td>
                   <td>Amount</td>
                   <td>Date Time</td>
                   <td>Type</td>
@@ -22,9 +24,11 @@
               <tr *ngFor="let transaction of transactions;  let i = index">
                   <td>{{(i + 1)}}</td>
                   <td>{{transaction.LoanAccountId}}</td>
+                  <td>{{transaction.Product}}</td>
+                  <td>{{transaction.Member}}</td>
                   <td>{{transaction.Amount}}</td>
                   <td>{{transaction.Date | date:'mediumDate'}}</td>
-                  <td>{{transaction.Type}}</td>
+                  <td>{{transaction.TypeStr}}</td>
                   <td>{{transaction.CreatedOn | date:'mediumDate'}}</td>
                   <td>{{transaction.CreatedBy }}</td>
               </tr>

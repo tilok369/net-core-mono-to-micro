@@ -6,4 +6,7 @@ export class Transaction {
   Type!: Number;
   CreatedOn!: Date;
   CreatedBy!: string;
+  Product!: string;
+  Member!: string;
+  TypeStr!: string;
 }

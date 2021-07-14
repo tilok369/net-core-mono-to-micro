@@ -12,7 +12,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/account")]
     [ApiController]
-    [Authorize]
+ 
     public class LoanAccountController : ControllerBase
     {
         private readonly ILoanAccountFactory _loanAccountFactory;

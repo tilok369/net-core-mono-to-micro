@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { TransactionService } from '../services/transaction.service';
 import { Transaction } from '../Models/transaction';
 import { FilterService } from '../services/filter.service';
+import { LoanAccountService } from '../services/loan-account.service';
 
 @Component({
   selector: 'app-transaction-management-add',
@@ -12,11 +13,14 @@ import { FilterService } from '../services/filter.service';
 export class TransactionManagementAddComponent implements OnInit {
    formData : Transaction = new Transaction;
    transactions : any;
+   loanAccounts : any;
   constructor(private transactionService: TransactionService,
-    private filterService: FilterService) { }
+    private filterService: FilterService,
+    private loanAccountService : LoanAccountService) { }
 
   ngOnInit(): void {
     this.getTransactionTypes();
+    this.getLoanAccounts();
   }
 
   onSubmit(form: NgForm) {
@@ -31,6 +35,13 @@ export class TransactionManagementAddComponent implements OnInit {
     this.filterService.getTransactionTypes().subscribe((res: any) => {
       this.transactions = res;
   });
+}
+
+getLoanAccounts(){
+  this.loanAccountService.getLoanAccounts().subscribe((res: any) => {
+    this.loanAccounts = res;
+});
+
 }
 
 }

@@ -12,7 +12,7 @@ namespace Mono2Micro.Monolithic.App.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/filter")]
     [ApiController]
-    [Authorize]
+    
     public class FilterController : ControllerBase
     {
         private readonly IFilterFactory _filterFactory;
