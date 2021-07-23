@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-#nullable disable
-
-namespace Mono2Micro.MicroService.App.Transactions.DAL.Entities
+namespace Mono2Micro.MicroService.App.Transactions.Model.Transactions
 {
-    public partial class Transaction
+    public record TransactionDTO
     {
         public int Id { get; set; }
         public int LoanAccountId { get; set; }
+        public string Product { get; set; }
+        public string Member { get; set; }
+        public string TypeStr { get; set; }
         public int Amount { get; set; }
         public DateTime Date { get; set; }
         public int Type { get; set; }
@@ -16,9 +20,5 @@ namespace Mono2Micro.MicroService.App.Transactions.DAL.Entities
         public string CreatedBy { get; set; }
         public DateTime? UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
-        public string Product { get; set; }
-        public string Member { get; set; }
-
-        public virtual TransactionType TypeNavigation { get; set; }
     }
 }
