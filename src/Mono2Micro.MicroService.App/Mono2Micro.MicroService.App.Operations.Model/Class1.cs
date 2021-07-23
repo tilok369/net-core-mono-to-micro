@@ -1,8 +1,0 @@
-﻿using System;
-
-namespace Mono2Micro.MicroService.App.Operations.Model
-{
-    public class Class1
-    {
-    }
-}
