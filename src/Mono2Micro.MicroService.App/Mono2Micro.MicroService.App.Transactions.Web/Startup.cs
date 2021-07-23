@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Mono2Micro.MicroService.App.Transactions.DAL.Repositories;
+using Mono2Micro.MicroService.App.Transactions.Service.Transactions;
+using Mono2Micro.MicroService.App.Transactions.Web.Factories.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +64,12 @@ namespace Mono2Micro.MicroService.App.Transactions.Web
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mono2Micro.MicroService.App.Transactions.Web", Version = "v1" });
             });
+
+            var connectionString = Configuration.GetConnectionString("MicroTransDBConn");
+            services.AddScoped<IGenericRepository>(s => new GenericRepository(connectionString));
+
+            services.AddScoped<ITransactionService, TransactionService>();
+            services.AddScoped<ITransactionFactory, TransactionFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
