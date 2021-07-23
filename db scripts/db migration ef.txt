@@ -1,1 +1,5 @@
 Scaffold-DbContext -Connection Name=MonoDBConn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -Project "Mono2Micro.App.DAL" -force
+
+Scaffold-DbContext -Connection Name=MicroOptDBConn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -Project "Mono2Micro.MicroService.App.Operations.DAL" -force
+
+Scaffold-DbContext -Connection Name=MicroTransDBConn Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -Project "Mono2Micro.MicroService.App.Transactions.DAL" -force

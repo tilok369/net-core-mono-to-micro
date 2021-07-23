@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Operations.Web", "Mono2Micro.MicroService.App.Operations.Web\Mono2Micro.MicroService.App.Operations.Web.csproj", "{24D66A72-A081-448D-B1E5-01086CF9B17B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Operations", "Operations", "{47692E7B-9745-410B-A352-F05E253B5683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Operations.DAL", "Mono2Micro.MicroService.App.Operations.DAL\Mono2Micro.MicroService.App.Operations.DAL.csproj", "{C05A825C-7BF3-457A-AB76-F2361680D514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Operations.Model", "Mono2Micro.MicroService.App.Operations.Model\Mono2Micro.MicroService.App.Operations.Model.csproj", "{4F5CDEF9-ABC4-46F1-BA81-E76A64F8A4E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Operations.Service", "Mono2Micro.MicroService.App.Operations.Service\Mono2Micro.MicroService.App.Operations.Service.csproj", "{F34093F5-423E-4FE2-9971-FFF09F8CB3D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transactions", "Transactions", "{5896C711-2F83-4E9F-9E6D-AC45C25F9F27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Transactions.Web", "Mono2Micro.MicroService.App.Transactions.Web\Mono2Micro.MicroService.App.Transactions.Web.csproj", "{A25DD8D5-51E4-498A-BD12-A7C1A5650548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Transactions.DAL", "Mono2Micro.MicroService.App.Transactions.DAL\Mono2Micro.MicroService.App.Transactions.DAL.csproj", "{12961DFD-31FE-41D8-9D37-7417AB62ECD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Transactions.Model", "Mono2Micro.MicroService.App.Transactions.Model\Mono2Micro.MicroService.App.Transactions.Model.csproj", "{BA25DA01-B826-4017-8283-D8B2B2135E3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Transactions.Service", "Mono2Micro.MicroService.App.Transactions.Service\Mono2Micro.MicroService.App.Transactions.Service.csproj", "{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24D66A72-A081-448D-B1E5-01086CF9B17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D66A72-A081-448D-B1E5-01086CF9B17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D66A72-A081-448D-B1E5-01086CF9B17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D66A72-A081-448D-B1E5-01086CF9B17B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C05A825C-7BF3-457A-AB76-F2361680D514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05A825C-7BF3-457A-AB76-F2361680D514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05A825C-7BF3-457A-AB76-F2361680D514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05A825C-7BF3-457A-AB76-F2361680D514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5CDEF9-ABC4-46F1-BA81-E76A64F8A4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5CDEF9-ABC4-46F1-BA81-E76A64F8A4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5CDEF9-ABC4-46F1-BA81-E76A64F8A4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5CDEF9-ABC4-46F1-BA81-E76A64F8A4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34093F5-423E-4FE2-9971-FFF09F8CB3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34093F5-423E-4FE2-9971-FFF09F8CB3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34093F5-423E-4FE2-9971-FFF09F8CB3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34093F5-423E-4FE2-9971-FFF09F8CB3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25DD8D5-51E4-498A-BD12-A7C1A5650548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25DD8D5-51E4-498A-BD12-A7C1A5650548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25DD8D5-51E4-498A-BD12-A7C1A5650548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25DD8D5-51E4-498A-BD12-A7C1A5650548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12961DFD-31FE-41D8-9D37-7417AB62ECD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12961DFD-31FE-41D8-9D37-7417AB62ECD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12961DFD-31FE-41D8-9D37-7417AB62ECD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12961DFD-31FE-41D8-9D37-7417AB62ECD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA25DA01-B826-4017-8283-D8B2B2135E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA25DA01-B826-4017-8283-D8B2B2135E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA25DA01-B826-4017-8283-D8B2B2135E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA25DA01-B826-4017-8283-D8B2B2135E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24D66A72-A081-448D-B1E5-01086CF9B17B} = {47692E7B-9745-410B-A352-F05E253B5683}
+		{C05A825C-7BF3-457A-AB76-F2361680D514} = {47692E7B-9745-410B-A352-F05E253B5683}
+		{4F5CDEF9-ABC4-46F1-BA81-E76A64F8A4E5} = {47692E7B-9745-410B-A352-F05E253B5683}
+		{F34093F5-423E-4FE2-9971-FFF09F8CB3D7} = {47692E7B-9745-410B-A352-F05E253B5683}
+		{A25DD8D5-51E4-498A-BD12-A7C1A5650548} = {5896C711-2F83-4E9F-9E6D-AC45C25F9F27}
+		{12961DFD-31FE-41D8-9D37-7417AB62ECD0} = {5896C711-2F83-4E9F-9E6D-AC45C25F9F27}
+		{BA25DA01-B826-4017-8283-D8B2B2135E3C} = {5896C711-2F83-4E9F-9E6D-AC45C25F9F27}
+		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59} = {5896C711-2F83-4E9F-9E6D-AC45C25F9F27}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9C65227-D26A-438D-9FE0-33297EA47F12}
+	EndGlobalSection
+EndGlobal
