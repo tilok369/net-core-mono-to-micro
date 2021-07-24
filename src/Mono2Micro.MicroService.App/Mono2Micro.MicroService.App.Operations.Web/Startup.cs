@@ -16,6 +16,8 @@ using Mono2Micro.MicroService.App.Operations.Service.LoanAccount;
 using Mono2Micro.MicroService.App.Operations.Web.Factories.Filter;
 using Mono2Micro.MicroService.App.Operations.Web.Factories.Identity;
 using Mono2Micro.MicroService.App.Operations.Web.Factories.LoanAccount;
+using Net.RabbitMQ.Wrapper;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +81,12 @@ namespace Mono2Micro.MicroService.App.Operations.Web
 
             services.AddScoped<ILoanAccountService, LoanAccountService>();
             services.AddScoped<ILoanAccountFactory, LoanAccountFactory>();
+
+            services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@localhost:5672"));
+            services.AddScoped<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
+               "loan_account_exchange", ExchangeType.Topic));
+            services.AddSingleton<IMqSubscriber>(x => new MqSubscriber(x.GetService<IMqConnection>(),
+                "transaction_exchange", "transaction_queue", "transaction_route_key", ExchangeType.Topic));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
