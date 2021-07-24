@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\net-rabbitmq-wrapper\src\Net.RabbitMQ.Wrapper\Net.RabbitMQ.Wrapper\Net.RabbitMQ.Wrapper.csproj" />
     <ProjectReference Include="..\Mono2Micro.MicroService.App.Operations.DAL\Mono2Micro.MicroService.App.Operations.DAL.csproj" />
     <ProjectReference Include="..\Mono2Micro.MicroService.App.Operations.Model\Mono2Micro.MicroService.App.Operations.Model.csproj" />
     <ProjectReference Include="..\Mono2Micro.MicroService.App.Operations.Service\Mono2Micro.MicroService.App.Operations.Service.csproj" />
