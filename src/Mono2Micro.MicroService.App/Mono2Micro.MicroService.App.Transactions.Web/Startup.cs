@@ -12,6 +12,9 @@ using Microsoft.OpenApi.Models;
 using Mono2Micro.MicroService.App.Transactions.DAL.Repositories;
 using Mono2Micro.MicroService.App.Transactions.Service.Transactions;
 using Mono2Micro.MicroService.App.Transactions.Web.Factories.Transactions;
+using Mono2Micro.MicroService.App.Transactions.Web.Listeners;
+using Net.RabbitMQ.Wrapper;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +73,14 @@ namespace Mono2Micro.MicroService.App.Transactions.Web
 
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<ITransactionFactory, TransactionFactory>();
+
+            services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@localhost:5672"));
+            services.AddScoped<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
+               "transaction_exchange", ExchangeType.Topic));
+            services.AddSingleton<IMqSubscriber>(x => new MqSubscriber(x.GetService<IMqConnection>(),
+                "loan_account_exchange", "loan_account_queue", "loan_account.created", ExchangeType.Topic));
+
+            services.AddHostedService<LoanAccountResponseListener>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
