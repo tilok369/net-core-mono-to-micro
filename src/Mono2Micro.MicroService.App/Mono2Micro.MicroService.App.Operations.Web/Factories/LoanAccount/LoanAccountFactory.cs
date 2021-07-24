@@ -7,6 +7,9 @@ using Mono2Micro.MicroService.App.Operations.Service.Filter;
 using Mono2Micro.MicroService.App.Operations.Service.Identity;
 using Mono2Micro.MicroService.App.Operations.Service.LoanAccount;
 using Mono2Micro.MicroService.App.Operations.Model.LoanAccount;
+using Net.RabbitMQ.Wrapper;
+using Newtonsoft.Json;
+using Mono2Micro.MicroService.App.Common.Model;
 
 namespace Mono2Micro.MicroService.App.Operations.Web.Factories.LoanAccount
 {
@@ -16,14 +19,15 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Factories.LoanAccount
         private readonly ILoanAccountService _loanAccountService;
         private readonly IFilterService _filterService;
         private readonly IIdentityService _identityService;
-        //private readonly ITransactionService _transactionService;
+        private readonly IMqPublisher _publisher;
 
         public LoanAccountFactory(ILoanAccountService loanAccountService, IFilterService filterService,
-            IIdentityService identityService /*ITransactionService transactionService*/)
+            IIdentityService identityService, IMqPublisher publisher)
         {
             this._loanAccountService = loanAccountService;
             this._filterService = filterService;
             this._identityService = identityService;
+            this._publisher = publisher;
             //this._transactionService = transactionService;
         }
         public IList<LoanAccountRequestDTO> Get()
@@ -107,6 +111,19 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Factories.LoanAccount
                     loanAccount.InstallmentFrequencyId, loanAccount.Amount, loanAccount.DisbursedDate);
 
                 var rslt = _loanAccountService.Save(newSchedules);
+
+                var product = _filterService.GetProducts().FirstOrDefault(p => p.Id == loanAccount.ProductId)?.Name ?? "";
+                var member = _identityService.Get(loanAccount.IdentityId);
+
+                _publisher.Publish("loan_account.created", JsonConvert.SerializeObject(
+                    new TransactionPublishDTO
+                    {
+                        LoanAccountId = loanAccount.Id,
+                        Amount = loanAccount.Amount,
+                        Date = loanAccount.DisbursedDate,
+                        Member = $"{member?.FirstName ?? ""} {member?.LastName ?? ""}",
+                        Product = product
+                    }), null);
 
                 //var transaction = new Transaction { LoanAccountId = result.Id, Type = 1, Amount = loanAccount.Amount, 
                 //    Date = loanAccount.DisbursedDate, CreatedOn = DateTime.Now, CreatedBy = loanAccount.CreatedBy, 

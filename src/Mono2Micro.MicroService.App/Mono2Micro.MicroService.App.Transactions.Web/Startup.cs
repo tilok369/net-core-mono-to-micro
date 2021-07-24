@@ -69,13 +69,13 @@ namespace Mono2Micro.MicroService.App.Transactions.Web
             });
 
             var connectionString = Configuration.GetConnectionString("MicroTransDBConn");
-            services.AddScoped<IGenericRepository>(s => new GenericRepository(connectionString));
+            services.AddSingleton<IGenericRepository>(s => new GenericRepository(connectionString));
 
-            services.AddScoped<ITransactionService, TransactionService>();
-            services.AddScoped<ITransactionFactory, TransactionFactory>();
+            services.AddSingleton<ITransactionService, TransactionService>();
+            services.AddSingleton<ITransactionFactory, TransactionFactory>();
 
             services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@localhost:5672"));
-            services.AddScoped<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
+            services.AddSingleton<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
                "transaction_exchange", ExchangeType.Topic));
             services.AddSingleton<IMqSubscriber>(x => new MqSubscriber(x.GetService<IMqConnection>(),
                 "loan_account_exchange", "loan_account_queue", "loan_account.created", ExchangeType.Topic));

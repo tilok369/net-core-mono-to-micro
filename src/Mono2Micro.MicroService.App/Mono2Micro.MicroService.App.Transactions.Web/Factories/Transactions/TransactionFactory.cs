@@ -1,6 +1,9 @@
-﻿using Mono2Micro.MicroService.App.Transactions.DAL.Entities;
+﻿using Mono2Micro.MicroService.App.Common.Model;
+using Mono2Micro.MicroService.App.Transactions.DAL.Entities;
 using Mono2Micro.MicroService.App.Transactions.Model.Transactions;
 using Mono2Micro.MicroService.App.Transactions.Service.Transactions;
+using Net.RabbitMQ.Wrapper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +14,12 @@ namespace Mono2Micro.MicroService.App.Transactions.Web.Factories.Transactions
     public class TransactionFactory : ITransactionFactory
     {
         private readonly ITransactionService _transactionService;
+        private readonly IMqPublisher _publisher;
 
-        public TransactionFactory(ITransactionService transactionService)
+        public TransactionFactory(ITransactionService transactionService, IMqPublisher publisher)
         {
             this._transactionService = transactionService;
+            this._publisher = publisher;
         }
         public IList<TransactionDTO> Get()
         {
@@ -73,6 +78,14 @@ namespace Mono2Micro.MicroService.App.Transactions.Web.Factories.Transactions
             };
 
             var result = _transactionService.Save(dbTransaction);
+
+            _publisher.Publish("transaction.created", JsonConvert.SerializeObject(
+                new LoanAccountPublishDTO
+                {
+                    LoanAccountId = transaction.LoanAccountId,
+                    Amount = transaction.Amount,
+                    Date = transaction.Date
+                }), null);
 
             return new TransactionResponseDTO { Id = result.Id, Success = result.Id > 0, Message = result.Id > 0 ? "Success" : "Error" };
         }

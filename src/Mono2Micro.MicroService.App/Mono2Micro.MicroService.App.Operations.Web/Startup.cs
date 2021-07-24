@@ -72,19 +72,19 @@ namespace Mono2Micro.MicroService.App.Operations.Web
             });
 
             var connectionString = Configuration.GetConnectionString("MicroOptDBConn");
-            services.AddScoped<IGenericRepository>(s => new GenericRepository(connectionString));
+            services.AddSingleton<IGenericRepository>(s => new GenericRepository(connectionString));
 
-            services.AddScoped<IFilterService, FilterService>();
-            services.AddScoped<IFilterFactory, FilterFactory>();
+            services.AddSingleton<IFilterService, FilterService>();
+            services.AddSingleton<IFilterFactory, FilterFactory>();
 
-            services.AddScoped<IIdentityService, IdentityService>();
-            services.AddScoped<IIdentityFactory, IdentityFactory>();
+            services.AddSingleton<IIdentityService, IdentityService>();
+            services.AddSingleton<IIdentityFactory, IdentityFactory>();
 
-            services.AddScoped<ILoanAccountService, LoanAccountService>();
-            services.AddScoped<ILoanAccountFactory, LoanAccountFactory>();
+            services.AddSingleton<ILoanAccountService, LoanAccountService>();
+            services.AddSingleton<ILoanAccountFactory, LoanAccountFactory>();
 
             services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@localhost:5672"));
-            services.AddScoped<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
+            services.AddSingleton<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
                "loan_account_exchange", ExchangeType.Topic));
             services.AddSingleton<IMqSubscriber>(x => new MqSubscriber(x.GetService<IMqConnection>(),
                 "transaction_exchange", "transaction_queue", "transaction.created", ExchangeType.Topic));
