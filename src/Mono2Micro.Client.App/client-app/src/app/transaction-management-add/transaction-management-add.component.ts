@@ -4,6 +4,7 @@ import { TransactionService } from '../services/transaction.service';
 import { Transaction } from '../Models/transaction';
 import { FilterService } from '../services/filter.service';
 import { LoanAccountService } from '../services/loan-account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-management-add',
@@ -16,7 +17,8 @@ export class TransactionManagementAddComponent implements OnInit {
    loanAccounts : any;
   constructor(private transactionService: TransactionService,
     private filterService: FilterService,
-    private loanAccountService : LoanAccountService) { }
+    private loanAccountService : LoanAccountService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getTransactionTypes();
@@ -26,6 +28,9 @@ export class TransactionManagementAddComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.transactionService.saveTransactions(this.formData).subscribe((res:any)=>{
       console.log(res);
+      if(res.Success){
+        this.router.navigateByUrl('/transaction-management');
+      }
     })
     console.log(this.formData);
   }

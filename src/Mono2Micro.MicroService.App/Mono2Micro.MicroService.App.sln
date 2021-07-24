@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mono2Micro.MicroService.App
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mono2Micro.MicroService.App.Transactions.Service", "Mono2Micro.MicroService.App.Transactions.Service\Mono2Micro.MicroService.App.Transactions.Service.csproj", "{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.RabbitMQ.Wrapper", "..\..\..\net-rabbitmq-wrapper\src\Net.RabbitMQ.Wrapper\Net.RabbitMQ.Wrapper\Net.RabbitMQ.Wrapper.csproj", "{CC6D7366-522A-4CED-96A9-C51BC89289D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono2Micro.MicroService.App.Common.Model", "Mono2Micro.MicroService.App.Common.Model\Mono2Micro.MicroService.App.Common.Model.csproj", "{28E515A6-C19F-409F-8177-3309C29B18FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mono2Micro.App.Api.Gateway", "..\Mono2Micro.Monolithic.App\Mono2Micro.App.Api.Gateway\Mono2Micro.App.Api.Gateway.csproj", "{8D43DC4D-F03D-4EF3-8827-C350B4047A27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,14 +65,14 @@ Global
 		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DC8CA5E-D1AB-4E74-8389-6D60A005EA59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC6D7366-522A-4CED-96A9-C51BC89289D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC6D7366-522A-4CED-96A9-C51BC89289D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC6D7366-522A-4CED-96A9-C51BC89289D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC6D7366-522A-4CED-96A9-C51BC89289D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28E515A6-C19F-409F-8177-3309C29B18FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28E515A6-C19F-409F-8177-3309C29B18FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E515A6-C19F-409F-8177-3309C29B18FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E515A6-C19F-409F-8177-3309C29B18FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D43DC4D-F03D-4EF3-8827-C350B4047A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D43DC4D-F03D-4EF3-8827-C350B4047A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D43DC4D-F03D-4EF3-8827-C350B4047A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D43DC4D-F03D-4EF3-8827-C350B4047A27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

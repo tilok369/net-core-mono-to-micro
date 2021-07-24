@@ -4,6 +4,7 @@ import { FilterService } from '../services/filter.service';
 import { LoanAccountService } from '../services/loan-account.service';
 import { LoanAccount } from '../Models/loanAccount';
 import { LoanSchedule } from '../Models/loanSchedule';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loan-account-add',
@@ -18,7 +19,7 @@ export class LoanAccountAddComponent implements OnInit {
   installmentFrequency: any;
 
   constructor(private filterService: FilterService,
-    private loanAccountService: LoanAccountService) { }
+    private loanAccountService: LoanAccountService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProductsFilter();
@@ -28,6 +29,9 @@ export class LoanAccountAddComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loanAccountService.saveLoanAccounts(this.formData).subscribe((res:any)=>{
       console.log(res);
+      if(res.Success){
+        this.router.navigateByUrl('/loan-management');
+      }      
     })
     console.log(this.formData);
   }
