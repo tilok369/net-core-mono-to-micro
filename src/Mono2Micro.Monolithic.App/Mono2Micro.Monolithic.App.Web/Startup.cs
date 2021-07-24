@@ -66,7 +66,7 @@ namespace Mono2Micro.Monolithic.App.Web
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
                 {
                     config.Authority = "https://localhost:44310/";
-                    config.Audience = "ApiOne";
+                    config.Audience = "MonoApi";
                 });
 
             services.AddControllers()

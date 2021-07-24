@@ -12,7 +12,7 @@ namespace Mono2Micro.MicroService.App.Transactions.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/transaction")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionFactory _transactionFactory;

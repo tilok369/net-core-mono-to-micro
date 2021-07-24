@@ -41,7 +41,7 @@ import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
         redirectUrl: window.location.origin,
         postLogoutRedirectUri: window.location.origin,
         clientId: 'angular',
-        scope: 'openid ApiOne',
+        scope: 'openid MonoScope TransactionsApiScope OperationsApiScope',
         responseType: 'code',
         silentRenew: true,
         useRefreshToken: true,

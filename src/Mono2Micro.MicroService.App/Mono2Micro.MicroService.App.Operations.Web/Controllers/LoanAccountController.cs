@@ -12,7 +12,7 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/account")]
     [ApiController]
- 
+    [Authorize]
     public class LoanAccountController : ControllerBase
     {
         private readonly ILoanAccountFactory _loanAccountFactory;

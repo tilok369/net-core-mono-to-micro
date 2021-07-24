@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mono2Micro.MicroService.App.Operations.Model.Filter;
 using Mono2Micro.MicroService.App.Operations.Web.Factories.Filter;
@@ -10,7 +11,7 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/filter")]
     [ApiController]
-
+    [Authorize]
     public class FilterController : ControllerBase
     {
         private readonly IFilterFactory _filterFactory;

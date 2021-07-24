@@ -12,7 +12,7 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Controllers
 {
     [Route("api/v{version:apiVersion}/identity")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class IdentityController : ControllerBase
     {
         private readonly IIdentityFactory _identityFactory;
