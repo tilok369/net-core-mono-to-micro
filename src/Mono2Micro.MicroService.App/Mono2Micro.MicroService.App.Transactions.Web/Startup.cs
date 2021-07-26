@@ -74,7 +74,7 @@ namespace Mono2Micro.MicroService.App.Transactions.Web
             services.AddSingleton<ITransactionService, TransactionService>();
             services.AddSingleton<ITransactionFactory, TransactionFactory>();
 
-            services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@localhost:5672"));
+            services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@192.168.97.24:5672"));
             services.AddSingleton<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
                "transaction_exchange", ExchangeType.Topic));
             services.AddSingleton<IMqSubscriber>(x => new MqSubscriber(x.GetService<IMqConnection>(),

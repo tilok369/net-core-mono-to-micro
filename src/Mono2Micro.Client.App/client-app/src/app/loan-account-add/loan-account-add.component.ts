@@ -15,6 +15,7 @@ export class LoanAccountAddComponent implements OnInit {
   formData: LoanAccount = new LoanAccount;
   schedules: LoanSchedule [] = [];
   products : any;
+  identities : any;
   durations : any;
   installmentFrequency: any;
 
@@ -23,6 +24,7 @@ export class LoanAccountAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductsFilter();
+    this.getIdentityFilter();
   }
 
 
@@ -31,7 +33,7 @@ export class LoanAccountAddComponent implements OnInit {
       console.log(res);
       if(res.Success){
         this.router.navigateByUrl('/loan-management');
-      }      
+      }
     })
     console.log(this.formData);
   }
@@ -41,6 +43,13 @@ export class LoanAccountAddComponent implements OnInit {
       this.products = res;
       console.log(this.products);
   });
+}
+
+getIdentityFilter(){
+  this.filterService.getIdentity().subscribe((res: any) => {
+    this.identities = res;
+    console.log(this.identities);
+});
 }
 
 gotoschedule(){

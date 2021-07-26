@@ -89,7 +89,7 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Factories.LoanAccount
         {
             var account =  new DAL.Entities.LoanAccount
             {
-                IdentityId = 1,
+                IdentityId = loanAccount.IdentityId,
                 Amount = loanAccount.Amount,
                 CreatedBy = "Admin",
                 CreatedOn = DateTime.Now,

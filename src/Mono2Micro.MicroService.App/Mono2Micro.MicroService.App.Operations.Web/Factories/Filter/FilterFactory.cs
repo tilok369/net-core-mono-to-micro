@@ -65,5 +65,12 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Factories.Filter
                 .Select(p => new DdlResponseDTO(p.Id, p.Name, p.SortOrder))
                 .ToList();
         }
+
+        public List<DdlResponseDTO> GetIdentity()
+        {
+            return _filterService.GetAllIdentity()
+                .Select(p => new DdlResponseDTO(p.Id, p.FirstName + " " + p.LastName, 0))
+                .ToList();
+        }
     }
 }

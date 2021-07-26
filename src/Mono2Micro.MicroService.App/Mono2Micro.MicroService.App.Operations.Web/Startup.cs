@@ -83,7 +83,7 @@ namespace Mono2Micro.MicroService.App.Operations.Web
             services.AddSingleton<ILoanAccountService, LoanAccountService>();
             services.AddSingleton<ILoanAccountFactory, LoanAccountFactory>();
 
-            services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@localhost:5672"));
+            services.AddSingleton<IMqConnection>(new MqConnection("amqp://guest:guest@192.168.97.24:5672"));
             services.AddSingleton<IMqPublisher>(x => new MqPublisher(x.GetService<IMqConnection>(),
                "loan_account_exchange", ExchangeType.Topic));
             services.AddSingleton<IMqSubscriber>(x => new MqSubscriber(x.GetService<IMqConnection>(),

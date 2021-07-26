@@ -14,5 +14,6 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Factories.Filter
         List<DdlResponseDTO> GetTransactionTypes();
         List<DdlResponseDTO> GetDurationsByProduct(int productId);
         List<DdlResponseDTO> GetInstallmentFrequenciesByProduct(int productId);
+        List<DdlResponseDTO> GetIdentity();
     }
 }

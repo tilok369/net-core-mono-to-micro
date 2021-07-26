@@ -6,6 +6,14 @@
           <hr />
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="form-group">
+            <label >User </label>
+            <select  id="identity" name="identity" [(ngModel)]="formData.IdentityId" class="form-control">
+              <option *ngFor="let x of identities" [ngValue]="x.Value" >{{x.Name}}</option>
+            </select>
+
+          </div>
+
             <div class="form-group">
               <label>Product</label>
               <select  id="product-id" name="product-id" [(ngModel)]="formData.ProductId" (change)="productChanged();" class="form-control">

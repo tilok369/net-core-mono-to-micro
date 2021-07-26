@@ -62,5 +62,12 @@ namespace Mono2Micro.MicroService.App.Operations.Web.Controllers
             var transactionTypes = _filterFactory.GetTransactionTypes();
             return Ok(transactionTypes);
         }
+
+        [HttpGet("get-identityall")]
+        public ActionResult<IList<DdlResponseDTO>> GetIdentity()
+        {
+            var identities = _filterFactory.GetIdentity();
+            return Ok(identities);
+        }
     }
 }

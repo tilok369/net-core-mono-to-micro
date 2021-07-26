@@ -13,6 +13,7 @@ namespace Mono2Micro.MicroService.App.Operations.Service.Filter
         List<Duration> GetDurations();
         List<InstallmentFrequency> GetInstallmentFrequencies();
         List<TransactionType> GetTransactionTypes();
+        List<DAL.Entities.Identity> GetAllIdentity();
         List<ProductDuration> GetDurationsByProduct(int productId);
         List<ProductInstallmentFrequency> GetInstallmentFrequenciesByProduct(int productId);
     }

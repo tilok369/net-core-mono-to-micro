@@ -37,6 +37,11 @@ namespace Mono2Micro.MicroService.App.Operations.Service.Filter
             return _genericRepository.GetAll<TransactionType>();
         }
 
+        public List<DAL.Entities.Identity> GetAllIdentity()
+        {
+            return _genericRepository.GetAll<DAL.Entities.Identity>();
+        }
+
         public List<ProductInstallmentFrequency> GetInstallmentFrequenciesByProduct(int productId)
         {
             return _genericRepository.Find<ProductInstallmentFrequency>(i => i.ProductId == productId);
