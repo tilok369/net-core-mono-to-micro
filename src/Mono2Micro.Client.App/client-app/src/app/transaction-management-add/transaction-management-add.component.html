@@ -11,7 +11,7 @@
             <div class="form-group">
               <label class="col-lg-5 col-md-5 col-sm-12">Loan Account </label>
               <select  id="transaction-type" name="transaction-type" [(ngModel)]="formData.LoanAccountId" class="form-control col-lg-4 col-md-4 col-sm-12">
-                <option *ngFor="let x of loanAccounts" [ngValue]="x.Id" >{{x.Client}}</option>
+                <option *ngFor="let x of loanAccounts" [ngValue]="x.Id" >{{x.Client}} ({{x.Id}})</option>
               </select>
 
             </div>

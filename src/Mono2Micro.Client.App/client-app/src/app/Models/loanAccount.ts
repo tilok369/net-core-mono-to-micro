@@ -1,5 +1,6 @@
 
 export class LoanAccount {
+    Id!: number;
     IdentityId!: number;
     Client!: string;
     ProductId!: number;

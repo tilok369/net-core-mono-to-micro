@@ -7,7 +7,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="form-group">
-            <label >User </label>
+            <label >Customer </label>
             <select  id="identity" name="identity" [(ngModel)]="formData.IdentityId" class="form-control">
               <option *ngFor="let x of identities" [ngValue]="x.Value" >{{x.Name}}</option>
             </select>

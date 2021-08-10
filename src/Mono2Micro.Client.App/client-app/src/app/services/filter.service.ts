@@ -27,4 +27,8 @@ getTransactionTypes(){
   return this.http.get('https://localhost:44386/api/gateway/v1.0/filter/transaction-types',this.requestHelper.getHttpHeader());
 }
 
+getIdentity(){
+  return this.http.get('https://localhost:44386/api/gateway/v1.0/filter/get-identityall',this.requestHelper.getHttpHeader());
+  }
+
 }

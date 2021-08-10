@@ -19,7 +19,7 @@
           <tbody>
               <tr *ngFor="let account of loanAccounts;  let i = index">
                   <td>{{(i + 1)}}</td>
-                  <td>{{account.Client}}</td>
+                  <td>{{account.Client}} ({{account.Id}})</td>
                   <td>{{account.Product}}</td>
                   <td>{{account.Duration}}</td>
                   <td>{{account.Frequency}}</td>
