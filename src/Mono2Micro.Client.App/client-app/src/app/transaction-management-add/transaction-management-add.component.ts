@@ -39,6 +39,7 @@ export class TransactionManagementAddComponent implements OnInit {
   getTransactionTypes(){
     this.filterService.getTransactionTypes().subscribe((res: any) => {
       this.transactions = res;
+      console.log(res);
   });
 }
 

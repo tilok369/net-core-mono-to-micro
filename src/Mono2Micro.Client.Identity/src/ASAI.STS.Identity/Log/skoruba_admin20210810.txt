@@ -1,0 +1,6 @@
+2021-08-10 14:22:53.644 +06:00 [ERR] Malformed JWT token: IDX12741: JWT: 'System.String' must have three segments (JWS) or five segments (JWE).
+System.ArgumentException: IDX12741: JWT: 'System.String' must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken..ctor(String jwtEncodedString)
+   at IdentityServer4.Validation.TokenValidator.GetClientIdFromJwt(String token)
+2021-08-10 14:22:53.729 +06:00 [ERR] No clientId supplied, can't find id in identity token.
+2021-08-10 14:22:53.730 +06:00 [ERR] Error processing end session request Invalid request
