@@ -16,6 +16,6 @@ export class ClientManagementService{
     }
 
     saveClient(client:any){
-        return this.http.post('https://localhost:44386/api/gateway/v1.0/identity/post',client);
+        return this.http.post('https://localhost:44386/api/gateway/v1.0/identity/post',client,this.requestHelper.getHttpHeader());
     }
 }
